@@ -13,7 +13,10 @@
     "cz": "cz",
     "build": "swc src -d dist --copy-files --strip-leading-paths --delete-dir-on-start --ignore */.{spec,test}.ts",
     "dev": "tsx watch src/http/server.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "matheussatoshi",
@@ -24,6 +27,7 @@
     "@commitlint/cz-commitlint": "^19.6.1",
     "@commitlint/types": "^19.5.0",
     "@eslint/js": "^9.20.0",
+    "@jest/globals": "^29.7.0",
     "@swc/cli": "^0.6.0",
     "@swc/core": "^1.10.16",
     "@types/node": "^22.13.4",
@@ -31,9 +35,11 @@
     "eslint": "^9.20.1",
     "globals": "^15.15.0",
     "husky": "^9.1.7",
+    "jest": "^29.7.0",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.1",
     "prettier-plugin-organize-imports": "^4.1.0",
+    "ts-jest": "^29.2.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.0"
