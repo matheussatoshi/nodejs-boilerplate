@@ -25,7 +25,6 @@ export class Server {
       morgan("[:date[web]] - [:method] :url (:status) in :response-time ms"),
     );
 
-    //@ts-ignore
     this.express.use(errorMiddleware);
   }
 
@@ -36,7 +35,6 @@ export class Server {
         description: params.description,
         version: params.version,
         currentDateTime: new Date().toLocaleString(),
-        currentTZ: process.env.TZ,
       });
     });
     this.express.listen(params.applicationPort, () => {
