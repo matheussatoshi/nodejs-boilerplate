@@ -16,7 +16,7 @@ export const corsMiddleware = (
     "GET, POST, PUT, PATCH, DELETE",
   );
 
-  cors();
+  cors()(request, response, next);
 
   next();
 };
