@@ -11,6 +11,7 @@
   },
   "scripts": {
     "cz": "cz",
+    "lint": "eslint .",
     "build": "swc src -d dist --copy-files --strip-leading-paths --delete-dir-on-start --ignore */.{spec,test}.ts",
     "dev": "tsx watch src/http/server.ts",
     "prepare": "husky",
