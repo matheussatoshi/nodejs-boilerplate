@@ -14,6 +14,7 @@ export default [
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 ];
