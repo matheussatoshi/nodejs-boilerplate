@@ -1,5 +1,4 @@
 import express, { Application } from "express";
-import "express-async-errors";
 import morgan from "morgan";
 import { corsMiddleware } from "./core/cors.middleware";
 import { errorMiddleware } from "./core/error.middleware";
