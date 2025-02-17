@@ -1,7 +1,13 @@
 import express, { Application } from "express";
 import morgan from "morgan";
+import path from "path";
+import { fileURLToPath } from "url";
 import { corsMiddleware } from "./core/cors.middleware";
 import { errorMiddleware } from "./core/error.middleware";
+import createRouter from "./core/router.middleware";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export class Server {
   public express: Application;
@@ -11,7 +17,7 @@ export class Server {
     this.initialize();
   }
 
-  private initialize(): void {
+  private async initialize() {
     this.express.use(corsMiddleware);
 
     this.express.use(express.json({ limit: "1mb" }));
@@ -23,6 +29,10 @@ export class Server {
     this.express.use(
       morgan("[:date[web]] - [:method] :url (:status) in :response-time ms"),
     );
+
+    await createRouter(this.express, {
+      directory: path.join(__dirname, "routes"),
+    });
 
     this.express.use(errorMiddleware);
   }
