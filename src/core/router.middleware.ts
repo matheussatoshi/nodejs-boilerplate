@@ -1,4 +1,4 @@
-import fr from "@/config/file-routing";
+import routing from "@/config/routing";
 import { generateRoutes, walkTree } from "@/lib/fr";
 import { getHandlers, getMethodKey, isHandler } from "@/utils/routing-handlers";
 import path from "path";
@@ -29,7 +29,7 @@ const createRouter = async <T extends ExpressLike = ExpressLike>(
 
       if (
         !options.additionalMethods?.includes(methodKey) &&
-        !fr.DEFAULT_METHOD_EXPORTS.includes(methodKey)
+        !routing.DEFAULT_METHOD_EXPORTS.includes(methodKey)
       )
         continue;
 

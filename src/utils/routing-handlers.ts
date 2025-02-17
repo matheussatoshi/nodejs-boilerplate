@@ -1,16 +1,16 @@
-import fr from "@/config/file-routing";
+import routing from "@/config/routing";
 import type { Handler } from "express";
 import type { ParsedPath } from "path";
 
 export const isCjs = () => typeof module !== "undefined" && !!module?.exports;
 
 export const isFileIgnored = (parsedFile: ParsedPath) =>
-  !fr.VALID_FILE_EXTENSIONS.includes(parsedFile.ext.toLowerCase()) ||
-  fr.INVALID_NAME_SUFFIXES.some((suffix) =>
+  !routing.VALID_FILE_EXTENSIONS.includes(parsedFile.ext.toLowerCase()) ||
+  routing.INVALID_NAME_SUFFIXES.some((suffix) =>
     parsedFile.base.toLowerCase().endsWith(suffix),
   ) ||
-  parsedFile.name.startsWith(fr.IGNORE_PREFIX_CHAR) ||
-  parsedFile.dir.startsWith(`/${fr.IGNORE_PREFIX_CHAR}`);
+  parsedFile.name.startsWith(routing.IGNORE_PREFIX_CHAR) ||
+  parsedFile.dir.startsWith(`/${routing.IGNORE_PREFIX_CHAR}`);
 
 export const isHandler = (handler: unknown): handler is Handler | Handler[] =>
   typeof handler === "function" || Array.isArray(handler);
