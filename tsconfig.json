@@ -10,13 +10,14 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
-      "@/tests/*": ["./tests/*"]
+      "@/tests/*": ["./tests/*"],
+      "@/scripts/*": ["./scripts/*"]
     },
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "moduleResolution": "node"
   },
-  "include": ["src", "tests", "interfaces"],
+  "include": ["src", "tests", "scripts", "interfaces"],
   "exclude": ["node_modules", "dist", "docs"]
 }
