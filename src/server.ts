@@ -31,7 +31,7 @@ export class Server {
     );
 
     await createRouter(this.express, {
-      directory: path.join(__dirname, "routes"),
+      directory: path.join(__dirname, "api"),
     });
 
     this.express.use(errorMiddleware);
